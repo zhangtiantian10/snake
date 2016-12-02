@@ -115,7 +115,7 @@ function generateFood() {
     var x = parseInt((Math.random()*200) / 5) * 5;
     var y = parseInt((Math.random()*250) / 5) * 5;
     snakeFood = {x: x, y: y};
-    context.fillStyle = "red"
+    context.fillStyle = "red";
     context.fillRect(snakeFood.x, snakeFood.y, 5, 5);
 }
 
@@ -131,3 +131,18 @@ function eatFood() {
 }
 
 var m = setInterval(move, 100);
+
+function newGame() {
+    clearInterval(m);
+    context.clearRect(0, 0, 200, 250);
+    generateFood();
+    m = setInterval(move, 100);
+    grade = 0;
+    snake = [{x: 50, y: 100}];
+    goWhere = "right";
+    length = 10;
+    pressLeft = false;
+    pressRight = false;
+    pressUp = false;
+    pressDown = false;
+}
